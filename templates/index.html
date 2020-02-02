@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mini Facebook API v0.1</title>
+	{# <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> #}
+	<link type="text/css" rel="stylesheet" href="static/css/materialize.min.css">
+	<link rel="shortcut icon" href="/static/favicon.ico">
+	{# <script type="text/javascript" src="static/js/materialize.min.js"></script> #}
+	{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> #}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body class="blue darken-3">
+	<h5 class="center">Mini Facebook API v0.1</h5>
+	<div class="container">
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Menghasilkan Cookies</p>
+				<p>API ini menggunakan cookies untuk login akun facebook anda. Cookies yg di input ke API ini harus di encrypt menggunakan base64 alasanya bukan karena keamanan tetapi agar cookies dapat dikirim menggunakan metode GET. berikut adalah bagaimana menghasilkan cookies API ini:</p>
+				<b>Metode:</b> POST<br>
+				<b>Url: </b>{{url}}/generate_cookies<br>
+				<b>Parameter: </b>user, pass <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>data = {'user':'username kamu', 'pass':'password kamu'}</i><br>
+			    <i>page = r.post("{{url}}/generate_cookies", data=data).json()</i>
+			</div>
+		</div>
+		<div style="padding: 5px"></div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Melihat Informasi Saya</p>
+				<b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/me?kuki=cookies_ente<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/me?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=").json()</i>
+			</div>
+		</div>
+		<div style="padding: 5px"></div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Melihat Informasi Teman</p>
+				<b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/people/id_teman?kuki=cookies_ente<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/people/100041106940465?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=").json()</i>
+			</div>
+		</div>
+		<div style="padding: 5px"></div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Melihat Grup  Saya</p>
+				<b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/me/groups?kuki=cookies_ente<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/me/groups?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=").json()</i>
+			</div>
+		</div>
+		<div style="padding: 5px"></div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Melihat Teman Saya</p>
+				<b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/me/friends?kuki=cookies_ente<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/me/friends?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=").json()</i>
+			</div>
+		</div>
+		<div style="padding: 5px"></div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Melihat Info Grup</p>
+				<b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/group/id_grup?kuki=cookies_ente<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/group/1922836934621172?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=").json()</i>
+			</div>
+		</div>
+		<div style="padding: 5px"></div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Melihat Member Grup</p>
+				<b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/group/id_grup/members?kuki=cookies_ente<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/group/1922836934621172/members?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=").json()</i>
+			</div>
+		</div>
+		<div style="padding: 5px"></div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Melihat Liker Postingan</p>
+				<b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/post/id_post/likes?kuki=cookies_ente<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/post/id_post/likes?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=").json()</i>
+			    <br><br>
+			    <span>Jika mengeksekusi perintah diatas secara default sistem akan memilih liker bertype suka. Tambahkan parameter "type" untuk melihat liker yang bertype react, untuk valuenya anda bisa lihat dibawah.</span>
+			    <ul>
+			    	<ol>- mantapmantap = love</ol>
+			    	<ol>- sadna        = sad</ol>
+			    	<ol>- ngamuk       = angry</ol>
+			    	<ol>- ngakak       = haha</ol>
+			    	<ol>- keren        = wow</ol>
+			    </ul><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/post/id_post/likes?kuki=cookies_ente&type=type_na<br>
+				<b>Parameter: </b>kuki, type <br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.get("{{url}}/post/id_post/likes?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=&type=mantapmantap").json()</i>
+			</div>
+		</div>
+		<div class="green-text" style="margin-top: 20px">
+			<div class="black" style="padding: 10px">
+				<p class="center" style="font-size: 30px">Menyukai Postingan</p>
+				<b>Metode:</b> POST<br>
+				<b>Url: </b>{{url}}/post/id_post/likes<br>
+				<b>Parameter: </b>kuki <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>data = {'kuki:'c2FsaXNnYW5zc2FuZ2FkZGQ='}</i><br>
+			    <i>page = r.post("{{url}}/post/166694224710808&/likes", data=data).json()</i>
+			    <br><br><i>Atau</i><br><br>
+			    <b>Metode:</b> GET<br>
+				<b>Url: </b>{{url}}/post/id_post/likes?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=&method=post<br>
+				<b>Parameter: </b>kuki, method <br><br>
+			    <i>Contoh penggunaan:</i><br><br>
+			    <i>import requests as r</i><br>
+			    <i>page = r.post("{{url}}/post/166694224710808&/likes?kuki=c2FsaXNnYW5zc2FuZ2FkZGQ=&method=post").json()</i>
+			</div>
+		</div>
+		<div class="center white-text" style="padding: 25px"><strong>© 2020 salis mazaya from xiuz.sec</strong></div>
+	</div>
+</body>
+</html>
